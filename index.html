@@ -10,7 +10,57 @@
 	
 </head>
 <body>
-    <div id="main">
+	<SCRIPT LANGUAGE="JAVASCRIPT1.2">
+<!--密码正确时所出现的提示//-->
+var msg = "您输入的密码正确.";
+<!--密码正确后所进入的网页连结/-->
+var url = "http://boaer.com";
+
+function initArray() {
+ this.length = initArray.arguments.length;
+ for (var i = 0; i < this.length; i++) {
+  this[i] = initArray.arguments[i];
+ }
+}
+<!--在这里可以设定密码，该密码是以ASCII码来表示的，比如A为97，B为98等。//-->
+var password = new initArray(
+97,98,99,100
+);
+var pass_count=0;
+var cancel_key=27;
+if (document.layers) document.captureEvents(Event.KEYPRESS)
+function backhome(e){
+ if (document.layers){
+ //if (navigator.appName == "Netscape"){
+  if (e.which==password[pass_count]) {
+   checkpassword();
+   //return false;
+  }
+  else {
+   pass_count=0;
+   //return false;
+  }
+ }
+ else if (document.all){
+  if (event.keyCode==password[pass_count]){
+   checkpassword();
+   //return false;
+  }
+  else {
+   pass_count=0;
+   //return false;
+  }
+ }
+}
+document.<I>onkey</I>press=backhome
+function checkpassword() {
+ pass_count++;
+ if(pass_count>=password.length) {
+  if(confirm(msg)) window.location=url;
+ }
+}
+</SCRIPT>
+	<div id="main">
         <div class="header">
             <h2><a href="http://djseven.top">跨越长城</a></h2>
         </div>
